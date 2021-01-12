@@ -1,0 +1,83 @@
+# Evaluating Expressions Exercises  
+
+In [11]: '1' + 2
+# TypeError: can only concatenate str (not "int") to str
+
+In [12]: 6 % 4
+Out[12]: 2
+
+In [13]: type(6 % 4)
+Out[13]: int
+
+In [14]: type(type(6 % 4))
+Out[14]: type
+
+In [15]: '3 + 4 is ' + 3 + 4
+# TypeError: can only concatenate str (not "int") to str
+
+
+In [16]: 0 < 0
+Out[16]: False
+
+In [17]: 'False' == False
+Out[17]: False
+
+In [18]: True == 'True'
+Out[18]: False
+
+In [19]: 5 >= -5
+Out[19]: True
+
+In [20]: !False or False
+
+In [21]: True or "42"
+Out[21]: True
+
+In [22]: !True && !False
+/bin/bash: !False: command not found
+
+In [23]: 6 % 5
+Out[23]: 1
+
+In [24]: 5 < 4 and 1 == 1
+Out[24]: False
+
+In [25]: 'codeup' == 'codeup' and 'codeup' == 'Codeup'
+Out[25]: False
+
+In [26]:  4 >= 0 and 1 !== '1'
+  File "<ipython-input-26-28fe0c9082c3>", line 1
+    4 >= 0 and 1 !== '1'
+                   ^
+SyntaxError: invalid syntax
+
+
+In [27]: 4 >= 0 and 1 != '1'
+Out[27]: True
+
+In [28]: 6 % 3 == 0
+Out[28]: True
+
+In [29]: 5 % 2 != 0
+Out[29]: True
+
+In [30]: [1] + 2
+# TypeError: can only concatenate list (not "int") to list
+
+In [31]: [1] + [2]
+Out[31]: [1, 2]
+
+In [32]: [1] * 2
+Out[32]: [1, 1]
+
+In [33]: [1] * [2]
+TypeError: can't multiply sequence by non-int of type 'list'
+
+
+In [36]: [] + [] == []
+Out[36]: True
+
+In [37]: {} + {}
+# TypeError: unsupported operand type(s) for +: 'dict' and 'dict'
+
+
