@@ -1,0 +1,60 @@
+# Data Types Exercises
+
+In [1]: type(99.9)
+Out[1]: float
+
+In [2]: type("False")
+Out[2]: str
+
+In [3]: type(False)
+Out[3]: bool
+
+In [4]: type('0')
+Out[4]: str
+
+In [5]: type(0)
+Out[5]: int
+
+In [6]: type(True)
+Out[6]: bool
+
+In [7]: type('True')
+Out[7]: str
+
+In [8]: type([{}])
+Out[8]: list
+
+In [9]: type({'a': []})
+Out[9]: dict
+
+
+## What data type would best represent: 
+
+# A term or phrase typed into a search box?
+-- str
+
+# If a user is logged in?
+-- bool
+
+# A discount amount to apply to a user's shopping cart?
+-- float
+
+# Whether or not a coupon code is valid?
+-- bool
+
+# An email address typed into a registration form?
+-- str (that is part of a key in a dictionary)
+
+# The price of a product?
+-- float
+
+# A matrix:
+-- a list of dictionaries
+
+# The email addresses collected from a registration form?
+-- a list of strings (from a dictionary)
+
+# Information about applicants to Codeup's data science program?
+-- a list of dictionaries
+
+
