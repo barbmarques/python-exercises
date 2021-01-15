@@ -36,6 +36,8 @@ else:
 -- Enter a day of the week. sunday
 -- It is a weekend.
 
+# ^^^ Note from walkthur: on line26-28 -- could have used if x.lower.startswith('s'):
+
 #~~~~~~~~~~~~~~~~~~~~~
 
 #1c  create variables and make up values for
@@ -46,14 +48,16 @@ else:
 -- more than 40 hours
 
 hours_worked = 50
-hourly_rate = 250
+hourly_rate = 1
 if hours_worked <= 40:
     paycheck_amount = hours_worked * hourly_rate
 else:
-    paycheck_amount = hours_worked * hourly_rate * 1.5
-print("$",paycheck_amount)
+    overtime_hours = hours_worked - 40
+    normal_hours = hours_worked - overtime_hours
+    paycheck_amount = (normal_hours * hourly_rate) + (overtime_hours * hourly_rate * 1.5) 
+print(f'Your paycheck is ${paycheck_amount}')
 
--- $ 18750.0
+-- Your paycheck is $55.0
 
 
 #~~~~~~~~~~~~~~~~~~~~~
@@ -135,11 +139,11 @@ while i >= 5:
 #2.b.i  Write some code that prompts the user for a number, then
 # shows a multiplication table up through 10 for that number. 
 
-x = int(input("Enter a number."))
+x = int(input("Please enter a number.  "))
 for i in range (1,11):
     print(x,"x",i,"=",x * i)
 
--- Enter a number.12
+-- Please enter a number.  12
 -- 12 x 1 = 12
 -- 12 x 2 = 24
 -- 12 x 3 = 36
@@ -275,15 +279,68 @@ for n in range(1,51):
 #4  
 # 
 x = input("What number would you like to go up to?  ")
-
+print()
+print("number |  squared  |  cubed  ")
+print("------ |  -------  |  -----  ")
 for n in range(1,int(x) + 1):
-    print(n,n**2,n**3)
+    print(f'   {n}   |     {n**2}     |    {n**3}')
 y = input("Do you want to continue? Type yes or no:  ")
 while y == "yes":
     x = input("What number would you like to go up to?  ")
     for n in range(1,int(x) + 1):
-        print(n,n**2,n**3)
+        print(f'   {n}   |     {n**2}     |    {n**3}')
     y = input("Do you still want to continue? Type yes or no:  ")       
 print("Thank you for playing.")
 
+#5  Convert given number grades into letter grades.
+
+# Prompt the user for a numerical grade from 0 to 100.
+# Display the corresponding letter grade.
+# Prompt the user to continue.
+# Assume that the user will enter valid integers for the grades.
+# The application should only continue if the user agrees to.
+
+while True:
+    num_grade = int(input("Please enter a number grade: "))
+    if num_grade >= 88:
+        print("A")
+    elif num_grade >= 80:
+        print("B")
+    elif num_grade >= 67:
+        print("C")
+    elif num_grade >= 60:
+        print("D")
+    else:
+        print("F")
     
+    cont = input("Do you want to continue? ")
+    if not cont.lower().startswith("y"):
+        break
+    
+####    WORK FROM HERE DOWN  taken from in class walkthrough of exercises
+    # consider that this data structure could represent rows from a
+# database table
+books = [
+    {"title": "This is where I leave you", "author": "Jonathan Tropper", "genre": "Adult Fiction"},
+    {'title': 'Parable of the Sower', 'author': 'Octavia E. Butler', 'genre': 'Science Fiction'},
+    {"title": "Dune", "author": "Frank Herbert", "genre": "Science Fiction"},
+    {'title': 'The Singularity is Near', 'author': 'Ray Kurzweil', 'genre': 'Artificial intelligence/Technology'},
+    {"title": "Star Wars: The Old Republic - Revan", "author": "Sean Williams", "genre": "Science Fiction"},
+]
+
+selected_genre = input("Please enter a genre: ")
+selected_books = [book for book in books if book['genre'] == selected_genre]
+
+# for singular in plural
+# plural variable names indicate a list of things
+# the singular version is one thing from the list
+for book in selected_books:
+    print("---")
+    # print("title: {}".format(book['title']))
+    # print("author: {}".format(book['author']))
+    # print("genre: {}".format(book['genre']))
+    
+    # other ways to do it
+    print("Title: %s" % book['title'])
+    print("Author: " + book['author'])
+    print(f"Genre: {book['genre']}")
